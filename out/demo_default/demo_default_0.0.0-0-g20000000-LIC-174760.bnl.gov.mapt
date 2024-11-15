@@ -1,0 +1,13 @@
+@MAPFILE_REVISION 0.0.0-0-g20000000-LIC-174760.bnl.gov
+example_desyrdl.ID                                          1  0x00800000            4    0   32    0    0   RO
+.example_desyrdl                                          256  0x00800000         1024    0   32    0    0   RW
+example_desyrdl.VERSION                                     1  0x00800004            4    0   32    0    0   RO
+example_desyrdl.SCRATCH                                     1  0x00800010            4    0   32    0    0   RW
+example_desyrdl.TEST                                        1  0x00800014            4    0   32    0    0   RW
+example_desyrdl.TABLE                                      12  0x00800018           48    0   32    0    0   RW
+example_desyrdl.CLK_FREQ                                    4  0x00800048           16    0   32    0    0   RO
+example_desyrdl.SSP_A                                       4  0x00800058           16    0   18   16    1   RW
+example_desyrdl.INFO                                        2  0x00800068            8    0   32    0    0   RW
+example_desyrdl.INFO_NEW                                    4  0x00800070           16    0   32    0    0   RW
+example_desyrdl.MEM_TEST1                                  64  0x00800100          256    0   32    0    0   RW
+example_desyrdl.MEM_TEST2                                 128  0x00800200          512    0   18   16    1   RW
