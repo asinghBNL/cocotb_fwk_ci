@@ -34,3 +34,4 @@ jobs:
           make env
           make env_dev
           make cfg=cocotb project sim
+          ! grep "failure" prj/demo_cocotb_default/results.xml
