@@ -38,7 +38,7 @@ begin
       if pi_reset = '1' then 
         counter <= (others => '0');
       else
-        counter <= counter + 2;
+        counter <= counter + 1;
       end if;
     end if;
   end process;
