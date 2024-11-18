@@ -29,5 +29,5 @@ async def counter_tb(dut):
 
     for i in range(255):
         assert dut.po_counter.value == counter, f"FAIL: DUT={dut.po_counter.value}, SIM={counter}"
-        counter += 1
+        counter += 2
         await RisingEdge(dut.pi_clock)
