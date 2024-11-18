@@ -33,4 +33,4 @@ jobs:
         run: |
           make env
           make env_dev
-          make cfg=cocotb sim
+          make cfg=cocotb project sim
