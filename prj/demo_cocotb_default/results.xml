@@ -1,6 +1,0 @@
-<testsuites name="results">
-  <testsuite name="all" package="all">
-    <property name="random_seed" value="1731708641" />
-    <testcase name="counter_tb" classname="test_counter" file="/home/arshdeep/Documents/Projects/DESY_FWK/example_desy_project/prj/demo_cocotb_default/test_counter.py" lineno="16" time="0.00869607925415039" sim_time_ns="12825.001" ratio_time="1474802.6812059002" />
-  </testsuite>
-</testsuites>
