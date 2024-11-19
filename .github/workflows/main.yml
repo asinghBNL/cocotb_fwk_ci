@@ -35,6 +35,7 @@ jobs:
           make env_dev
           make cfg=cocotb project
           cd prj/demo_cocotb_default
+          ls
           make -f Makefile*
           ! grep "failure" prj/demo_cocotb_default/results.xml
           make -f Makefile* coverage
