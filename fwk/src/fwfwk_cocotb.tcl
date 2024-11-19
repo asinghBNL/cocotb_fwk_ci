@@ -103,6 +103,7 @@ proc saveProject {} {
       puts $fp "ifeq (\$(SIM),ghdl)"
       puts $fp "  EXTRA_ARGS += --std=93"
       puts $fp "  SIM_ARGS += --wave=dump.ghw --vcd=dump.vcd"
+      puts $fp "  ELAB_ARGS += -Wc,-fprofile-arcs -Wc,-ftest-coverage -Wl,-lgcov"
       puts $fp "else ifneq (\$(filter \$(SIM),questa modelsim riviera activehdl),)"
       puts $fp "  COMPILE_ARGS += -93"
       puts $fp "endif"
@@ -116,6 +117,10 @@ proc saveProject {} {
     }
 
     puts $fp "include \$(shell cocotb-config --makefiles)/Makefile.sim"
+    puts $fp "coverage:"
+    puts $fp "	rm *e~*"
+    puts $fp "	lcov -c -d . -o coverage.info"
+    puts $fp "	genhtml -o html coverage.info"
     close $fp
   }
 
