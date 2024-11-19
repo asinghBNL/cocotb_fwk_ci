@@ -31,8 +31,7 @@ jobs:
 
       - name: run test
         run: |
-          make env
-          make env_dev
+          conda activate cocotbEnv
           make cfg=cocotb project
           cd prj/demo_cocotb_default
           ls
