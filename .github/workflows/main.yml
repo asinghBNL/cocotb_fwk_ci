@@ -35,8 +35,7 @@ jobs:
           export PATH=/home/arshdeep/Documents/Projects/GHDL/ghdl_gcc/bin/:$PATH
           make cfg=cocotb project
           cd prj/demo_cocotb_default
+          cat Makefile*
           make -f Makefile*
-          ls
-          ! grep "failure" prj/demo_cocotb_default/results.xml
-          ls
+          ! grep "failure" results.xml
           make -f Makefile* coverage
