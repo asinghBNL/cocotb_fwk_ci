@@ -32,6 +32,7 @@ jobs:
       - name: run test
         run: |
           source .venv/bin/activate
+          export PATH=/home/arshdeep/Documents/Projects/GHDL/ghdl_gcc/bin/:$PATH
           make cfg=cocotb project
           cd prj/demo_cocotb_default
           ls
