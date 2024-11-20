@@ -36,4 +36,4 @@ jobs:
           make cfg=cocotb cocotb
           make cfg=cocotb cocotb_sim
           ! grep "failure" ./prj/demo_cocotb_default/results.xml
-          firefox ./prj/demo_cocotb_default/html/index.html
+          cp ./prj/demo_cocotb_default/html/index.html /home/arshdeep/
