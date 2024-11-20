@@ -31,11 +31,7 @@ jobs:
 
       - name: run test
         run: |
-          source .venv/bin/activate
-          export PATH=/home/arshdeep/Documents/Projects/GHDL/ghdl_gcc/bin/:$PATH
-          make cfg=cocotb project
-          cd prj/demo_cocotb_default
-          cat Makefile*
-          make -f Makefile*
-          ! grep "failure" results.xml
-          make -f Makefile* coverage
+          source setup.sh
+          make cfg=cocotb cocotb
+          make cfg=cocotb cocotb_sim
+          ! grep "failure" prj/demo_cocotb_defaul/results.xml
