@@ -32,6 +32,7 @@ jobs:
       - name: run test
         run: |
           source setup.sh
+          export PATH=/home/arshdeep/Documents/Projects/GHDL/ghdl_gcc/bin/:$PATH
           make cfg=cocotb cocotb
           make cfg=cocotb cocotb_sim
           ! grep "failure" ./prj/demo_cocotb_default/results.xml
