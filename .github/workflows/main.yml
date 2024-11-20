@@ -34,4 +34,4 @@ jobs:
           source setup.sh
           make cfg=cocotb cocotb
           make cfg=cocotb cocotb_sim
-          ! grep "failure" prj/demo_cocotb_defaul/results.xml
+          ! grep "failure" prj/demo_cocotb_default/results.xml
