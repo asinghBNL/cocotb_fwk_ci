@@ -1,4 +1,4 @@
-This file details how to get code coverage working with GHDL in the context of simulating a fwk project with cocotb.
+This file details the changes that are made to certain FWK project files (the ones in this same directory)
 It is important to note, to have code coverage work with GHDL, you need a version of GHDL a with GCC backend.
 
 In order to enable code coverage, some changes will need to be made to the FWK project files.
