@@ -8,9 +8,9 @@ on:
   push:
     paths:
       - 'src/app_demo/hdl/app_demo_top.vhd'
-  pull_request:
-    paths:
-      - 'src/app_demo/hdl/app_demo_top.vhd'
+  #pull_request:
+  #  paths:
+  #    - 'src/app_demo/hdl/app_demo_top.vhd'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
