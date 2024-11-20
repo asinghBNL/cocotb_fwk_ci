@@ -1,0 +1,43 @@
+This file details how to get code coverage working with GHDL in the context of simulating a fwk project with cocotb.
+It is important to note, to have code coverage work with GHDL, you need a version of GHDL a with GCC backend.
+
+In order to enable code coverage, some changes will need to be made to the FWK project files.
+
+The changes are shown below:
+  1. In the fwk/src/fwfwk_cocotb.tcl file, locate the portion where the following code is found:
+  
+      puts $fp "ifeq (\$(SIM),ghdl)"
+      puts $fp "  EXTRA_ARGS += --std=93"
+      puts $fp "  SIM_ARGS += --wave=dump.ghw --vcd=dump.vcd"
+      puts $fp "else ifneq (\$(filter \$(SIM),questa modelsim riviera activehdl),)"
+      puts $fp "  COMPILE_ARGS += -93"
+      puts $fp "endif
+
+    Change this by adding a line for "ELAB_ARGS" as such:
+
+      puts $fp "ifeq (\$(SIM),ghdl)"
+      puts $fp "  EXTRA_ARGS += --std=93"
+      puts $fp "  SIM_ARGS += --wave=dump.ghw --vcd=dump.vcd"
+->    puts $fp "  ELAB_ARGS += -Wc,-fprofile-arcs -Wc,-ftest-coverage -Wl,-lgcov"
+      puts $fp "else ifneq (\$(filter \$(SIM),questa modelsim riviera activehdl),)"
+      puts $fp "  COMPILE_ARGS += -93"
+      puts $fp "endif"
+
+    At the end of this portion of the tcl script, right after:
+
+      puts $fp "include \$(shell cocotb-config --makefiles)/Makefile.sim"
+
+    Paste in the following lines:
+
+      puts $fp "cover:"
+      puts $fp "	rm *e~*"
+      puts $fp "	lcov -c -d . -o coverage.info"
+      puts $fp "	genhtml -o html coverage.info"
+
+  2. In the .venv/lib/python3.12/site-packages/cocotb/share/makefiles/simulators/Makefile.ghdl file, locate the following line:
+
+      $(CMD) -m $(GHDL_ARGS) $(COMPILE_ARGS) --workdir=$(SIM_BUILD) -P$(SIM_BUILD) --work=$(RTL_LIBRARY) $(TOPLEVEL)
+
+    And replace it with the following line:
+
+      $(CMD) -m $(GHDL_ARGS) $(ELAB_ARGS) $(COMPILE_ARGS) --workdir=$(SIM_BUILD) -P$(SIM_BUILD) --work=$(RTL_LIBRARY) $(TOPLEVEL)
